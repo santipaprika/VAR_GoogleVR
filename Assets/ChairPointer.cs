@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ChairPointer : MonoBehaviour
 {
-
-    //movement speed in units per second
-    private float movementSpeed = 5f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +28,6 @@ public class ChairPointer : MonoBehaviour
 
     public void PointerClick()
     {
-        Destroy(gameObject);
-        //get the Input from Horizontal axis
-        ///float horizontalInput = Input.GetAxis("Horizontal");
-        //get the Input from Vertical axis
-        ///float verticalInput = Input.GetAxis("Vertical");
-        ///transform.position = transform.position + new Vector3(horizontalInput * movementSpeed * Time.deltaTime, verticalInput * movementSpeed * Time.deltaTime, 0);
+        
     }
 }
