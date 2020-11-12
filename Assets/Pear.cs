@@ -6,6 +6,7 @@ public class Pear : MonoBehaviour
 {
     [SerializeField]
     bool interactable = false;
+    bool selected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,18 +29,36 @@ public class Pear : MonoBehaviour
 #endif
 
         if (buttonDownA) {
-            transform.Translate(new Vector3(-0.4f, 0, 0));
+            selected = !selected;
+            if (!selected) RemoveInteraction();
+            else transform.GetChild(0).gameObject.SetActive(false);
+            Camera.main.transform.GetChild(0).gameObject.SetActive(!selected);
         }
+
+        if (selected) {
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 200f, LayerMask.GetMask("Surface"))) {
+                print(hit.distance);
+                transform.position = hit.point + 0.1f * hit.normal;
+                //transform.LookAt(Camera.main.transform);
+            }
+        }
+
     }
 
     public void AllowInteraction() {
         interactable = true;
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        Transform move_button = transform.GetChild(0);
+        move_button.gameObject.SetActive(true);
+        move_button.LookAt(Camera.main.transform);
+        move_button.Rotate(Vector3.up, 180f);
     }
 
     public void RemoveInteraction() {
-        interactable = false;
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        if (!selected) {
+            interactable = false;
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
 }
