@@ -28,10 +28,11 @@ public class PuzzlePiece : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (puzzlePiece == other.gameObject.GetComponent<PuzzleSlot>().puzzleSlot) {
-            GetComponent<Collider>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<InteractableItem>().selected = false;
             GetComponent<InteractableItem>().RemoveInteraction();
+            GetComponent<InteractableItem>().enabled = false;
+
             transform.parent = FindObjectOfType<PuzzleSlot>().transform.parent;
             transform.localPosition = pieceLocalPositions[puzzlePiece];
         }
