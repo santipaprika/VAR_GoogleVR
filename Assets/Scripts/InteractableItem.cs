@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     bool interactable = false;
-    bool selected = false;
+    public bool selected = false;
     public List<Transform> actionsUI;
 
     void Update()
@@ -32,7 +32,6 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (selected) {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 200f, LayerMask.GetMask("Surface"))) {
-                print(hit.distance);
                 transform.position = hit.point + GetComponent<Collider>().bounds.extents.y * hit.normal;
             }
         }
@@ -50,13 +49,13 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Transform move_button = actionsUI[0];
         move_button.gameObject.SetActive(true);
         Collider collider = GetComponent<Collider>();
-        print(collider.bounds.extents.y);
         move_button.SetPositionAndRotation(transform.position + new Vector3(0, 3 * collider.bounds.extents.y, 0), Quaternion.LookRotation((Camera.main.transform.position - transform.position).normalized));
         move_button.Rotate(Vector3.up, 180f);
     }
 
     public void RemoveInteraction() {
         if (!selected) {
+            Camera.main.transform.GetChild(0).gameObject.SetActive(true);
             interactable = false;
             actionsUI[0].gameObject.SetActive(false);
         }
