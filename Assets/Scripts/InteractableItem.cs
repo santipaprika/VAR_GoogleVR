@@ -1,20 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Pear : MonoBehaviour
+public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField]
     bool interactable = false;
     bool selected = false;
+    public List<Transform> actionsUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!interactable) return;
@@ -31,7 +25,7 @@ public class Pear : MonoBehaviour
         if (buttonDownA) {
             selected = !selected;
             if (!selected) RemoveInteraction();
-            else transform.GetChild(0).gameObject.SetActive(false);
+            else actionsUI[0].gameObject.SetActive(false);
             Camera.main.transform.GetChild(0).gameObject.SetActive(!selected);
         }
 
@@ -39,25 +33,32 @@ public class Pear : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 200f, LayerMask.GetMask("Surface"))) {
                 print(hit.distance);
-                transform.position = hit.point + 0.1f * hit.normal;
-                //transform.LookAt(Camera.main.transform);
+                transform.position = hit.point + GetComponent<Collider>().bounds.extents.y * hit.normal;
             }
         }
 
     }
+    public void OnPointerEnter(PointerEventData pointerEventData) {
+        AllowInteraction();
+    }
+    public void OnPointerExit(PointerEventData pointerEventData) {
+        RemoveInteraction();
+    }
 
     public void AllowInteraction() {
         interactable = true;
-        Transform move_button = transform.GetChild(0);
+        Transform move_button = actionsUI[0];
         move_button.gameObject.SetActive(true);
-        move_button.LookAt(Camera.main.transform);
+        Collider collider = GetComponent<Collider>();
+        print(collider.bounds.extents.y);
+        move_button.SetPositionAndRotation(transform.position + new Vector3(0, 3 * collider.bounds.extents.y, 0), Quaternion.LookRotation((Camera.main.transform.position - transform.position).normalized));
         move_button.Rotate(Vector3.up, 180f);
     }
 
     public void RemoveInteraction() {
         if (!selected) {
             interactable = false;
-            transform.GetChild(0).gameObject.SetActive(false);
+            actionsUI[0].gameObject.SetActive(false);
         }
     }
 
