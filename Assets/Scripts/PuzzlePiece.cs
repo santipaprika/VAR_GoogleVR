@@ -29,9 +29,9 @@ public class PuzzlePiece : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (puzzlePiece == other.gameObject.GetComponent<PuzzleSlot>().puzzleSlot) {
             GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<InteractableItem>().selected = false;
-            GetComponent<InteractableItem>().RemoveInteraction();
-            GetComponent<InteractableItem>().enabled = false;
+            GetComponent<GrabbableItem>().selected = false;
+            GetComponent<GrabbableItem>().RemoveInteraction();
+            GetComponent<GrabbableItem>().enabled = false;
 
             transform.parent = FindObjectOfType<PuzzleSlot>().transform.parent;
             transform.localPosition = pieceLocalPositions[puzzlePiece];
