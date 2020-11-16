@@ -12,24 +12,32 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (!interactable) return;
 
-        bool buttonDownA, buttonDownB;
-        buttonDownA = buttonDownB = false;
+        bool buttonDownA, buttonDownB, buttonDownC, buttonDownD;
+        buttonDownA = buttonDownB = buttonDownC = buttonDownD = false;
 
 #if UNITY_EDITOR 
         buttonDownA = Input.GetKeyDown("a");
         buttonDownB = Input.GetKeyDown("b");
+        buttonDownC = Input.GetKeyDown("c");
+        buttonDownD = Input.GetKeyDown("d");
 #else
         buttonDownA = Input.GetButtonDown("A");
         buttonDownB = Input.GetButtonDown("B");
+        buttonDownC = Input.GetButtonDown("C");
+        buttonDownD = Input.GetButtonDown("D");
 #endif
 
         if (buttonDownA) { OnButtonDownA(); }
         if (buttonDownB) { OnButtonDownB(); }
-        
+        if (buttonDownC) { OnButtonDownC(); }
+        if (buttonDownD) { OnButtonDownD(); }
+
     }
 
     virtual public void OnButtonDownA() { }
     virtual public void OnButtonDownB() { }
+    virtual public void OnButtonDownC() { }
+    virtual public void OnButtonDownD() { }
 
     public void OnPointerEnter(PointerEventData pointerEventData) {
         AllowInteraction();
