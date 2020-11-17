@@ -10,7 +10,7 @@ public class TeleportController : InteractableItem
     public Image colorImage;
     public int fadeSpeed = 5;
 
-    override public void OnButtonDownB() {
+    override public void OnButtonDownA() {
         StartCoroutine(FadeTP(fadeSpeed));
     }
 
@@ -30,4 +30,10 @@ public class TeleportController : InteractableItem
             yield return null;
         }
     }
+
+    //override public void ShowInteractionUI() {
+    //    Transform hoverUIParent = GameObject.Find("UI").transform.Find("OnHoverTeleport");
+    //    //Renderer[] hoverUIRenderers = GameObject.Find("OnHoverTeleport").GetComponentsInChildren<Renderer>(true);
+    //    ShowUI(hoverUIParent);
+    //}
 }

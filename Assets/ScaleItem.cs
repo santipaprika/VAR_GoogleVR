@@ -40,7 +40,7 @@ public class ScaleItem : InteractableItem
     {
         selected = !selected;
         if (!selected) RemoveInteraction();
-        else actionsUI[0].gameObject.SetActive(false);
+        //else actionsUI[0].gameObject.SetActive(false);
         Camera.main.transform.GetChild(0).gameObject.SetActive(!selected);
         ZoomOut = false;
         ZoomIn = true;
