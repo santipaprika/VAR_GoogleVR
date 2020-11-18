@@ -28,9 +28,9 @@ public class PuzzlePiece : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (puzzlePiece == other.gameObject.GetComponent<PuzzleSlot>().puzzleSlot) {
+            transform.rotation = Quaternion.Euler(0,0,0);
             GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<GrabbableItem>().selected = false;
-            GetComponent<GrabbableItem>().RemoveInteraction();
+            GetComponent<GrabbableItem>().OnButtonDownA();  //this will unselect and hide UI
             GetComponent<GrabbableItem>().enabled = false;
 
             transform.parent = FindObjectOfType<PuzzleSlot>().transform.parent;
