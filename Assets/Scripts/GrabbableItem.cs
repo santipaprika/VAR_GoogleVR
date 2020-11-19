@@ -55,7 +55,7 @@ public class GrabbableItem : InteractableItem
     // used in obervation mode
     private Vector3 initialPosition;
     // Change mode
-    override public void OnButtonDownAt() {
+    override public void OnButtonDownBack1() {
         if (selected) {
             initialPosition = transform.position;
             onEditModeUI[(int)currentMode].gameObject.SetActive(false);
