@@ -5,6 +5,7 @@ using UnityEngine;
 public enum PUZZLE_PIECES { Cube, Sphere, Cylinder, Torus };
 public class PuzzlePiece : MonoBehaviour
 {
+    private static int count;
     public PUZZLE_PIECES puzzlePiece;
     private Dictionary<PUZZLE_PIECES, Vector3> pieceLocalPositions = new Dictionary<PUZZLE_PIECES, Vector3>() 
     {
@@ -17,7 +18,7 @@ public class PuzzlePiece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        count = 0;
     }
 
     // Update is called once per frame
@@ -34,16 +35,22 @@ public class PuzzlePiece : MonoBehaviour
                     x_rotation_constraint = transform.rotation.eulerAngles.x % 90 < 10 || transform.rotation.eulerAngles.x % 90 > 80;
                     y_rotation_constraint = transform.rotation.eulerAngles.y % 90 < 10 || transform.rotation.eulerAngles.y % 90 > 80;
                     z_rotation_constraint = transform.rotation.eulerAngles.z % 90 < 10 || transform.rotation.eulerAngles.z % 90 > 80;
+                    count = count + 1;
+                    Debug.Log(count);
                     break;
                 case PUZZLE_PIECES.Cylinder:
                     x_rotation_constraint = transform.rotation.eulerAngles.x % 180 < 10 || transform.rotation.eulerAngles.x % 180 > 170;
                     y_rotation_constraint = true;
                     z_rotation_constraint = transform.rotation.eulerAngles.z % 180 < 10 || transform.rotation.eulerAngles.z % 180 > 170;
+                    count = count + 1;
+                    Debug.Log(count);
                     break;
                 case PUZZLE_PIECES.Torus:
                     x_rotation_constraint = true;
                     y_rotation_constraint = transform.rotation.eulerAngles.y % 180 < 10 || transform.rotation.eulerAngles.y % 180 > 170;
                     z_rotation_constraint = transform.rotation.eulerAngles.z % 180 < 10 || transform.rotation.eulerAngles.z % 180 > 170;
+                    count = count + 1;
+                    Debug.Log(count);
                     break;
                 default:
                     x_rotation_constraint = y_rotation_constraint = z_rotation_constraint = true;

@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class davidTalk : InteractableItem
+public class DavidTalk : InteractableItem
 
 {
-    public Transform player;
+    
 }

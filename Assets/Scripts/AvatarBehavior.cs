@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AvatarBehavior : MonoBehaviour
 {
+    private int tasks;
+
+    void Start()
+    {
+        tasks = 0;
+    }
     void Update()
     {
         Quaternion camYaw = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
