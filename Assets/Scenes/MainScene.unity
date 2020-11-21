@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 40919614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.44999993, z: -0.48}
-  m_LocalScale: {x: 0.72756654, y: 0.63503325, z: 0.5853332}
+  m_LocalScale: {x: 0.72756654, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 306959790944498416}
   m_RootOrder: 1
@@ -527,7 +527,7 @@ Transform:
   m_GameObject: {fileID: 223974226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.45, z: 0.43}
-  m_LocalScale: {x: 0.72756654, y: 0.63503325, z: 0.5853332}
+  m_LocalScale: {x: 0.92, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 306959790944498416}
   m_RootOrder: 2
@@ -2098,7 +2098,7 @@ Transform:
   m_GameObject: {fileID: 1114040580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.45, z: 0.48}
-  m_LocalScale: {x: 2.70165, y: 0.63503015, z: 0.585322}
+  m_LocalScale: {x: 2.70165, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 306959790944498416}
   m_RootOrder: 0
@@ -3213,7 +3213,7 @@ Transform:
   m_GameObject: {fileID: 1720145719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.43, z: -0.48}
-  m_LocalScale: {x: 0.72756654, y: 0.63503325, z: 0.5853332}
+  m_LocalScale: {x: 0.72756654, y: 0.1, z: 0.11}
   m_Children: []
   m_Father: {fileID: 306959790944498416}
   m_RootOrder: 3
@@ -4535,7 +4535,7 @@ MonoBehaviour:
   - {fileID: 1387791171}
   - {fileID: 352388022}
   rotateSpeed: 90
-  scaleSpeed: 1
+  scaleSpeed: 0.5
   bringSpeed: 1
 --- !u!114 &1463976652950023037
 MonoBehaviour:
@@ -5174,7 +5174,7 @@ MonoBehaviour:
   - {fileID: 1387791171}
   - {fileID: 352388022}
   rotateSpeed: 90
-  scaleSpeed: 1
+  scaleSpeed: 0.5
   bringSpeed: 1
 --- !u!64 &2499715779200632423
 MeshCollider:
@@ -7561,7 +7561,7 @@ MonoBehaviour:
   - {fileID: 1387791171}
   - {fileID: 352388022}
   rotateSpeed: 90
-  scaleSpeed: 1
+  scaleSpeed: 0.5
   bringSpeed: 1
 --- !u!114 &6064928451314312952
 MonoBehaviour:
@@ -8282,7 +8282,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7699824704299322448}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.114, y: 0.634, z: -0.882}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
@@ -8573,7 +8573,7 @@ MonoBehaviour:
   - {fileID: 1387791171}
   - {fileID: 352388022}
   rotateSpeed: 90
-  scaleSpeed: 1
+  scaleSpeed: 0.5
   bringSpeed: 1
 --- !u!23 &7718390323415040287
 MeshRenderer:

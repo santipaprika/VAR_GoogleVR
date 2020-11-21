@@ -13,7 +13,7 @@ public class GrabbableItem : InteractableItem
     public Transform[] onEditModeUI = new Transform[NUM_MODES];
 
     public float rotateSpeed = 90f;
-    public float scaleSpeed = 1f;
+    public float scaleSpeed = 0.5f;
     public float bringSpeed = 1f;
 
     void OnValidate() {
