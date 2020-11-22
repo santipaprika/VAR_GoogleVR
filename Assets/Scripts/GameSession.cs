@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public enum tasks { PUZZLE, EAT };
 public class GameSession : MonoBehaviour
 {
     static public GameSession currentSession;
-    public GameObject winUI;
+    public Transform winUI;
+    private bool gameFinished = false;
 
     [HideInInspector]
     public bool[] tasksDone = new bool[2];
@@ -33,18 +34,29 @@ public class GameSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentSession = new GameSession();
-        print(tasksDone);
-        winUI.SetActive(false);
+        currentSession = this;
     }
 
+    private void Update() {
+        if (gameFinished) {
+            if (Input.GetButtonDown("A")) {
+                foreach (InteractableItem interactableItem in GameObject.FindObjectsOfType<InteractableItem>()) {
+                    if (interactableItem.interactable) return;
+                }
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+    }
 
     public void CheckProgress() {
         foreach (bool task in tasksDone) {
             if (!task) return;
         }
 
-        winUI.SetActive(true);
+        winUI.gameObject.SetActive(true);
+        GameObject.Find("PuzzlePieces").SetActive(false);
+        
+        gameFinished = true;
 
     }
 }

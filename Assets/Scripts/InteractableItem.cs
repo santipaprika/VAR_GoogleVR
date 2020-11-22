@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    bool interactable = false;
+    [HideInInspector]
+    public bool interactable = false;
+
     public Transform onHoverUI;
 
     public virtual void Update()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.041599043, g: 0.037976705, b: 0.09349131, a: 1}
+  m_IndirectSpecularColor: {r: 0.041264936, g: 0.03772392, b: 0.092989914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -163,8 +163,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5918196, y: 1, z: 1}
-  m_Center: {x: 0.20409128, y: 0, z: 0}
+  m_Size: {x: 0.7883626, y: 1, z: 1}
+  m_Center: {x: 0.105820075, y: 0, z: 0}
 --- !u!114 &40919617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4b4b758bf20684e9432fd331bc4744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a6e75f898bdf6a4e87ca7fcf5b32304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eddaf306a4ea1f4a82750ca072ac5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1047527306}
   player: {fileID: 186658545}
   colorImage: {fileID: 2076300054}
@@ -528,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 212075370}
   m_Layer: 0
-  m_Name: OnHoverWin
+  m_Name: OnWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5745,7 +5746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94a1a47447284249b1e413f8f9cc36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winUI: {fileID: 212075369}
+  winUI: {fileID: 212075370}
   tasksDone: 0000
 --- !u!4 &624455223
 Transform:
@@ -6076,6 +6077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eddaf306a4ea1f4a82750ca072ac5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1047527306}
   player: {fileID: 186658545}
   colorImage: {fileID: 2076300054}
@@ -6621,7 +6623,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4b4b758bf20684e9432fd331bc4744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a6e75f898bdf6a4e87ca7fcf5b32304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6679,6 +6681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eddaf306a4ea1f4a82750ca072ac5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1047527306}
   player: {fileID: 186658545}
   colorImage: {fileID: 2076300054}
@@ -7039,6 +7042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eddaf306a4ea1f4a82750ca072ac5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1047527306}
   player: {fileID: 186658545}
   colorImage: {fileID: 2076300054}
@@ -12256,7 +12260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4b4b758bf20684e9432fd331bc4744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a6e75f898bdf6a4e87ca7fcf5b32304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12721,7 +12725,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4b4b758bf20684e9432fd331bc4744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a6e75f898bdf6a4e87ca7fcf5b32304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17737,6 +17741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -23674,6 +23679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -24313,6 +24319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -25778,6 +25785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -26305,6 +26313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -26536,6 +26545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74450e1c50173644c8a48332ad36e739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 165752600}
   eatCompletitionUI: {fileID: 1057102042}
 --- !u!54 &5764113268944024739
@@ -26760,6 +26770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -27772,6 +27783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4632f011ea3c60a43ba7b8e727f74272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1152119110}
   selected: 0
   onEditModeUI:
@@ -28439,6 +28451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02befd95184ea684e852c6583c51a6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   onHoverUI: {fileID: 1991851520}
 --- !u!1 &8296172668636722627
 GameObject:
@@ -29187,7 +29200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9040643310675650300}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 18.18, y: 0, z: 13.09}
+  m_LocalPosition: {x: 13.17, y: 0, z: 13.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5006512736103818663}

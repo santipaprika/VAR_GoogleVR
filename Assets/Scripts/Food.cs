@@ -14,5 +14,6 @@ public class Food : InteractableItem
         GameSession.currentSession.tasksDone[(int)tasks.EAT] = true;
 
         GameSession.currentSession.CheckProgress();
+        interactable = false;
     }
 }
