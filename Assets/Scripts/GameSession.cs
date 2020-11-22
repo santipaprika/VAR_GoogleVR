@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public enum tasks { PUZZLE, EAT };
 public class GameSession : MonoBehaviour
 {
     static public GameSession currentSession;
-
+    public GameObject winUI;
 
     [HideInInspector]
     public bool[] tasksDone = new bool[2];
@@ -34,6 +35,7 @@ public class GameSession : MonoBehaviour
     {
         currentSession = new GameSession();
         print(tasksDone);
+        winUI.SetActive(false);
     }
 
 
@@ -42,6 +44,7 @@ public class GameSession : MonoBehaviour
             if (!task) return;
         }
 
-        print("You win!");
+        winUI.SetActive(true);
+
     }
 }

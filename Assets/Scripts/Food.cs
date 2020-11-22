@@ -9,7 +9,7 @@ public class Food : InteractableItem
     {
         onHoverUI.gameObject.SetActive(false);
         PlaceUIOnObject(eatCompletitionUI);
-        GetComponent<Renderer>().enabled = false;
+        GetComponent<Renderer>().enabled = false; 
         eatCompletitionUI.gameObject.SetActive(true);
         GameSession.currentSession.tasksDone[(int)tasks.EAT] = true;
 
