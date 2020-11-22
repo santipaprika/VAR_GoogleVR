@@ -90,7 +90,7 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void PlaceUIOnObject(Transform UITransform) {
         Collider collider = GetComponent<Collider>();
-        UITransform.SetPositionAndRotation(transform.position + new Vector3(0, 3 * collider.bounds.extents.y, 0), Quaternion.LookRotation((Camera.main.transform.position - transform.position).normalized));
+        UITransform.SetPositionAndRotation(transform.position + new Vector3(0, collider.bounds.extents.y + 0.2f, 0), Quaternion.LookRotation((Camera.main.transform.position - transform.position).normalized));
         UITransform.Rotate(Vector3.up, 180f);
     }
 

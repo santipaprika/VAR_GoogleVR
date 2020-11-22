@@ -16,11 +16,15 @@ public class GrabbableItem : InteractableItem
     public float scaleSpeed = 0.5f;
     public float bringSpeed = 1f;
 
+    private float initialScale;
+
     void OnValidate() {
         if (onEditModeUI.Length != NUM_MODES) {
             Debug.LogWarning("Don't change the 'ints' field's array size!");
             System.Array.Resize(ref onEditModeUI, NUM_MODES);
         }
+
+        initialScale = transform.localScale.x;
     }
 
     override public void Update() {
@@ -70,8 +74,8 @@ public class GrabbableItem : InteractableItem
                 transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
                 break;
             case editModes.SCALE:
-                transform.localScale = Vector3.Min(transform.localScale + new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime,
-                                                    new Vector3(10f, 10f, 10f)); 
+                transform.localScale = Vector3.Min(Vector3.Scale(transform.localScale, Vector3.one + new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime),
+                                                    new Vector3(initialScale * 30, initialScale * 30, initialScale * 30)); 
                 break;
             case editModes.OBSERVE:
                 float maxDistance = (Camera.main.transform.position - initialPosition).magnitude;
@@ -97,7 +101,7 @@ public class GrabbableItem : InteractableItem
                 transform.Rotate(Vector3.left, rotateSpeed * Time.deltaTime);
                 break;
             case editModes.SCALE:
-                transform.localScale = Vector3.Max(transform.localScale - new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime, 
+                transform.localScale = Vector3.Max(Vector3.Scale(transform.localScale, Vector3.one - new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime), 
                                                     new Vector3(0.01f, 0.01f, 0.01f));
                 break;
             case editModes.OBSERVE:
