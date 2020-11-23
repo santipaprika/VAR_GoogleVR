@@ -8,6 +8,7 @@ public class GameSession : MonoBehaviour
 {
     static public GameSession currentSession;
     public Transform winUI;
+    public Transform puzzleUI;
     private bool gameFinished = false;
 
     [HideInInspector]
@@ -25,6 +26,7 @@ public class GameSession : MonoBehaviour
             if (m_puzzleCount == 4) {
                 tasksDone[(int)tasks.PUZZLE] = true;
                 CheckProgress();
+                puzzleUI.gameObject.SetActive(true);
             }
         }
     }

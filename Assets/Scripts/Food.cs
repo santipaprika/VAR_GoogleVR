@@ -12,6 +12,7 @@ public class Food : InteractableItem
         GetComponent<Renderer>().enabled = false; 
         eatCompletitionUI.gameObject.SetActive(true);
         GameSession.currentSession.tasksDone[(int)tasks.EAT] = true;
+        // NOT WORKING onHoverUI.gameObject.SetActive(false);
 
         GameSession.currentSession.CheckProgress();
         interactable = false;
