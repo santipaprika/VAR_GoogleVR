@@ -30,10 +30,4 @@ public class TeleportController : InteractableItem
             yield return null;
         }
     }
-
-    //override public void ShowInteractionUI() {
-    //    Transform hoverUIParent = GameObject.Find("UI").transform.Find("OnHoverTeleport");
-    //    //Renderer[] hoverUIRenderers = GameObject.Find("OnHoverTeleport").GetComponentsInChildren<Renderer>(true);
-    //    ShowUI(hoverUIParent);
-    //}
 }

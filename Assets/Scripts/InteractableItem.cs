@@ -80,14 +80,8 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
     virtual public void ShowInteractionUI() { }
 
     public void ShowUI() {
-        //Collider collider = GetComponent<Collider>();
         onHoverUI.gameObject.SetActive(true);
         PlaceUIOnObject(onHoverUI);
-        //foreach (Transform UIElem in onHoverUI.GetComponentInChildren<Transform>()) {
-        //    UIElem.gameObject.SetActive(true);
-        //    UIElem.SetPositionAndRotation(transform.position + new Vector3(0, 3 * collider.bounds.extents.y, 0), Quaternion.LookRotation((Camera.main.transform.position - transform.position).normalized));
-        //    UIElem.Rotate(Vector3.up, 180f);
-        //}
     }
 
     public void PlaceUIOnObject(Transform UITransform) {
@@ -100,9 +94,6 @@ public class InteractableItem : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Camera.main.transform.GetChild(0).gameObject.SetActive(true);
         interactable = false;
         onHoverUI.gameObject.SetActive(false);
-        //foreach (Transform UIElem in onHoverUI.GetComponentInChildren<Transform>()) {
-        //    UIElem.gameObject.SetActive(false);
-        //}
     }
 
 }

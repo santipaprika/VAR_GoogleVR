@@ -55,6 +55,7 @@ public class GameSession : MonoBehaviour
             if (!task) return;
         }
 
+        GameObject.FindObjectOfType<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audios/win"));
         winUI.gameObject.SetActive(true);
         GameObject.Find("PuzzlePieces").SetActive(false);
         

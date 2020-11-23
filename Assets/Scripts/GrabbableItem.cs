@@ -16,15 +16,17 @@ public class GrabbableItem : InteractableItem
     public float scaleSpeed = 0.5f;
     public float bringSpeed = 1f;
 
-    private float initialScale;
+    private Vector3 initialScale;
 
     void OnValidate() {
         if (onEditModeUI.Length != NUM_MODES) {
             Debug.LogWarning("Don't change the 'ints' field's array size!");
             System.Array.Resize(ref onEditModeUI, NUM_MODES);
         }
+    }
 
-        initialScale = transform.localScale.x;
+    private void Start() {
+        initialScale = transform.localScale;
     }
 
     override public void Update() {
@@ -43,6 +45,7 @@ public class GrabbableItem : InteractableItem
     // Grab | Drop object
     override public void OnButtonDownA() {
         selected = !selected;
+        GameObject.FindObjectOfType<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audios/Grab"));
         if (!selected) {
             onEditModeUI[(int)currentMode].gameObject.SetActive(false);
             currentMode = editModes.TRANSLATE;
@@ -75,7 +78,7 @@ public class GrabbableItem : InteractableItem
                 break;
             case editModes.SCALE:
                 transform.localScale = Vector3.Min(Vector3.Scale(transform.localScale, Vector3.one + new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime),
-                                                    new Vector3(initialScale * 30, initialScale * 30, initialScale * 30)); 
+                                                    initialScale * 5); 
                 break;
             case editModes.OBSERVE:
                 float maxDistance = (Camera.main.transform.position - initialPosition).magnitude;
@@ -87,7 +90,6 @@ public class GrabbableItem : InteractableItem
             default:
                 break;
         }
-        
     }
 
     override public void OnButtonB() {
@@ -115,14 +117,7 @@ public class GrabbableItem : InteractableItem
         }
     }
 
-
     override public void RemoveInteraction() {
         if (!selected) base.RemoveInteraction();
     }
-
-    //override public void ShowInteractionUI() {
-    //    Transform hoverUIParent = GameObject.Find("UI").transform.FindChild("OnHoverGrabbable");
-    //    //Renderer[] hoverUIRenderers = GameObject.Find("OnHoverGrabbable").GetComponentsInChildren<Renderer>(true);
-    //    ShowUI(hoverUIParent);
-    //}
 }

@@ -7,6 +7,7 @@ public class Food : InteractableItem
     public Transform eatCompletitionUI;
     override public void OnButtonDownA()
     {
+        GameObject.FindObjectOfType<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audios/eat"));
         onHoverUI.gameObject.SetActive(false);
         PlaceUIOnObject(eatCompletitionUI);
         GetComponent<Renderer>().enabled = false; 
@@ -15,6 +16,6 @@ public class Food : InteractableItem
         
         GameSession.currentSession.CheckProgress();
 
-        enabled = false;
+        gameObject.SetActive(false);
     }
 }

@@ -41,6 +41,7 @@ public class PuzzlePiece : MonoBehaviour
             bool scale_constraint = transform.localScale.x > 0.25 && transform.localScale.x < 0.35; // will be the same for every axis
 
             if (x_rotation_constraint && y_rotation_constraint && z_rotation_constraint && scale_constraint) {
+                GameObject.FindObjectOfType<AudioSource>().PlayOneShot(Resources.Load<AudioClip>("Audios/MatchPuzzle"));
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                 GetComponent<Rigidbody>().isKinematic = true;
